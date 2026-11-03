@@ -4,17 +4,28 @@
  */
 
 /**
- * Modified by:
- * 
- * Brief summary of modifications:
+ * Modified by: Chase Bartelt
+ *
+ * Brief summary of modifications: Receives a SIGSEGV signal
  */
 
-
+#include <signal.h>
+#include <unistd.h>
 #include <stdio.h>
 
-int main (int argc, char* argv[]) {
+void handle_signal(int sig)
+{
+    (void)sig;
+    printf("Received SIGSEGV\n");
+}
+
+int main(void)
+{
+    // Register the signal handler for SIGSEGV
+    signal(SIGSEGV, handle_signal);
+
     // Declare a null pointer
-    int* i = NULL;
+    int *i = NULL;
 
     // Dereference the null pointer
     printf("The value of i is: %d\n", *i);
