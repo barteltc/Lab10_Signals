@@ -42,7 +42,7 @@ int main(int argc, char *argv[])
         perror("sigqueue");
         return 1;
     }
-    printf("Sending integer: %d\n", number);
+    printf("Sent integer: %d\n", number);
 
     return 0;
 }

@@ -11,6 +11,7 @@
 #include <signal.h>
 #include <stdio.h>
 #include <unistd.h>
+#include <stdlib.h>
 
 void handle_signal(int sig, siginfo_t *info, void *context)
 {
@@ -42,5 +43,6 @@ int main(void)
     while (1)
     {
         pause();
+        exit(0);
     }
 }
